@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChristinaWellness — Thrive Through Every Phase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush: #f0d9d4;
+      --blush-light: #fdf5f3;
+      --blush-mid: #e4c4bc;
+      --sage: #7d9e82;
+      --sage-light: #adc5b0;
+      --sage-pale: #edf3ee;
+      --cream: #faf6f0;
+      --cream-mid: #f0e8dc;
+      --cream-dark: #e4d5c8;
+      --gold: #b8906a;
+      --gold-light: #d4b08c;
+      --mauve: #a87880;
+      --text-dark: #28201e;
+      --text-mid: #584844;
+      --text-light: #988880;
+      --white: #ffffff;
+      --phase-men: #c46868;
+      --phase-men-bg: #fdf2f2;
+      --phase-fol: #6a9e70;
+      --phase-fol-bg: #f2f7f2;
+      --phase-ov: #c9a440;
+      --phase-ov-bg: #fdf8ee;
+      --phase-lut: #8870a8;
+      --phase-lut-bg: #f5f2fd;
+      --shadow-sm: 0 2px 12px rgba(40,20,18,0.07);
+      --shadow-md: 0 8px 32px rgba(40,20,18,0.10);
+      --shadow-lg: 0 20px 60px rgba(40,20,18,0.13);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --trans: 0.38s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.18; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.4rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: var(--trans);
+    }
+    nav.scrolled {
+      background: rgba(253,245,243,0.97);
+      backdrop-filter: blur(12px);
+      padding: 0.9rem 5%;
+      box-shadow: 0 1px 20px rgba(40,20,18,0.08);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--text-dark); letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--mauve); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--text-mid);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--mauve); }
+    .nav-book {
+      background: var(--mauve) !important;
+      color: var(--white) !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 30px;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.06em !important;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+    .nav-book:hover { background: var(--blush-mid) !important; transform: translateY(-1px); }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--text-dark); border-radius: 2px;
+      transition: var(--trans);
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.72s ease, transform 0.72s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rd1 { transition-delay: 0.1s; } .rd2 { transition-delay: 0.2s; }
+    .rd3 { transition-delay: 0.3s; } .rd4 { transition-delay: 0.4s; }
+
+    /* ─── SHARED ─── */
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--mauve); margin-bottom: 0.8rem;
+    }
+    .section-title { font-size: clamp(2rem,4vw,3.2rem); font-weight: 400; color: var(--text-dark); margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 540px; line-height: 1.85; }
+    .btn {
+      display: inline-block; padding: 0.9rem 2.2rem;
+      border-radius: 50px; font-size: 0.875rem; font-weight: 500;
+      letter-spacing: 0.03em; transition: all 0.3s; cursor: pointer; border: none;
+    }
+    .btn-rose { background: var(--mauve); color: var(--white); }
+    .btn-rose:hover { background: #c09098; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(168,120,128,0.38); }
+    .btn-outline-dark { background: transparent; color: var(--text-dark); border: 1.5px solid var(--cream-dark); }
+    .btn-outline-dark:hover { border-color: var(--mauve); color: var(--mauve); transform: translateY(-2px); }
+    .btn-outline-light { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); transform: translateY(-2px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; height: 100vh; min-height: 640px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
+      transform: scale(1.05); transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(40,20,18,0.52) 0%, rgba(40,20,18,0.28) 55%, rgba(240,217,212,0.18) 100%);
+    }
+    .hero-content {
+      position: relative; max-width: 720px;
+      padding: 0 5%; color: var(--white);
+      margin-left: 5%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.4rem 1.1rem; border-radius: 30px; margin-bottom: 1.6rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300; letter-spacing: -0.01em; margin-bottom: 1.4rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .hero h1 em { font-style: italic; color: var(--blush); }
+    .hero-sub {
+      font-size: clamp(0.95rem,1.8vw,1.1rem); font-weight: 300;
+      color: rgba(255,255,255,0.82); max-width: 480px;
+      line-height: 1.8; margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.45); font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      animation: heroScroll 2.5s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent);
+    }
+    @keyframes heroScroll {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar { background: var(--blush-light); padding: 1.4rem 5%; border-top: 1px solid var(--blush); border-bottom: 1px solid var(--blush); }
+    .trust-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--text-mid); font-weight: 500; }
+    .trust-icon { font-size: 1.1rem; }
+
+    /* ─── ABOUT ─── */
+    .about { padding: 9rem 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-images { position: relative; }
+    .about-img-main { border-radius: var(--radius-lg); height: 560px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .about-img-main img { height: 100%; transition: transform 0.65s ease; }
+    .about-img-main:hover img { transform: scale(1.04); }
+    .about-img-float {
+      position: absolute; bottom: -2.5rem; right: -2rem;
+      width: 46%; height: 220px;
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-lg); border: 5px solid var(--white);
+    }
+    .about-img-float img { height: 100%; }
+    .about-text .section-sub { margin-bottom: 2.5rem; }
+    .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .pillar {
+      background: var(--cream); border-radius: var(--radius);
+      padding: 1.2rem 1.3rem; display: flex; align-items: flex-start; gap: 0.8rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .pillar-text h4 { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .pillar-text p { font-size: 0.78rem; color: var(--text-light); line-height: 1.55; }
+
+    /* ─── CYCLE PHASES ─── */
+    .cycle { padding: 9rem 0; background: var(--cream); }
+    .cycle-header { text-align: center; margin-bottom: 3.5rem; }
+    .cycle-header .section-sub { margin: 0 auto; }
+    .phase-tabs {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
+      margin-bottom: 0; cursor: pointer;
+    }
+    .phase-tab {
+      border-radius: var(--radius); padding: 1.6rem 1.2rem;
+      text-align: center; border: 2px solid transparent;
+      transition: all 0.35s; position: relative; overflow: hidden;
+      background: var(--white); box-shadow: var(--shadow-sm);
+    }
+    .phase-tab:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .phase-tab.active { border-width: 2px; transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .phase-tab[data-phase="menstrual"] { --pc: var(--phase-men); --pbg: var(--phase-men-bg); }
+    .phase-tab[data-phase="follicular"] { --pc: var(--phase-fol); --pbg: var(--phase-fol-bg); }
+    .phase-tab[data-phase="ovulatory"] { --pc: var(--phase-ov); --pbg: var(--phase-ov-bg); }
+    .phase-tab[data-phase="luteal"] { --pc: var(--phase-lut); --pbg: var(--phase-lut-bg); }
+    .phase-tab.active { background: var(--pbg); border-color: var(--pc); }
+    .phase-num { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pc); margin-bottom: 0.4rem; }
+    .phase-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+    .phase-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .phase-days { font-size: 0.72rem; color: var(--text-light); font-weight: 500; }
+
+    .phase-panel {
+      display: none; background: var(--white);
+      border-radius: var(--radius-lg); margin-top: 1.25rem;
+      padding: 3rem; box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--panel-color, var(--mauve));
+      animation: panelIn 0.4s ease;
+    }
+    .phase-panel.active { display: block; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    .panel-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .panel-card {
+      background: var(--cream); border-radius: var(--radius);
+      padding: 1.5rem; transition: transform 0.3s;
+    }
+    .panel-card:hover { transform: translateY(-3px); }
+    .panel-card h4 {
+      font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--panel-color, var(--mauve)); margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .panel-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .panel-card li { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; padding-left: 1rem; position: relative; }
+    .panel-card li::before { content: '·'; position: absolute; left: 0; color: var(--panel-color, var(--mauve)); font-size: 1.2rem; line-height: 1.2; }
+    .panel-intro { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; }
+    .panel-badge {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--pbg, var(--blush-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; flex-shrink: 0;
+    }
+    .panel-title { font-size: 1.6rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .panel-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; }
+
+    /* ─── NUTRITION ─── */
+    .nutrition { padding: 9rem 0; background: var(--white); }
+    .nutrition-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+    .nutrition-img { border-radius: var(--radius-lg); height: 520px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .nutrition-img img { height: 100%; transition: transform 0.65s ease; }
+    .nutrition-img:hover img { transform: scale(1.04); }
+    .nutrition-content .section-sub { margin-bottom: 2.5rem; }
+    .nutrition-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .nutrition-card {
+      background: var(--cream); border-radius: var(--radius);
+      padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem;
+      border-left: 3px solid var(--sage);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .nutrition-card:hover { transform: translateX(4px); box-shadow: var(--shadow-sm); }
+    .nutrition-card:nth-child(2) { border-color: var(--mauve); }
+    .nutrition-card:nth-child(3) { border-color: var(--gold); }
+    .nutrition-card:nth-child(4) { border-color: var(--phase-lut); }
+    .nc-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .nc-text h4 { font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .nc-text p { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+
+    /* ─── MOVEMENT ─── */
+    .movement { padding: 9rem 0; background: var(--cream); }
+    .movement-header { text-align: center; margin-bottom: 4rem; }
+    .movement-header .section-sub { margin: 0 auto; }
+    .movement-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .movement-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .movement-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .movement-img { height: 200px; overflow: hidden; }
+    .movement-img img { height: 100%; transition: transform 0.6s ease; }
+    .movement-card:hover .movement-img img { transform: scale(1.06); }
+    .movement-info { padding: 1.5rem; }
+    .move-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+    .move-title { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .move-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1rem; }
+    .move-phases { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .move-phase-tag {
+      font-size: 0.65rem; font-weight: 600; padding: 0.25rem 0.7rem;
+      border-radius: 20px; letter-spacing: 0.06em;
+    }
+    .mpt-men { background: var(--phase-men-bg); color: var(--phase-men); }
+    .mpt-fol { background: var(--phase-fol-bg); color: var(--phase-fol); }
+    .mpt-ov { background: var(--phase-ov-bg); color: var(--phase-ov); }
+    .mpt-lut { background: var(--phase-lut-bg); color: var(--phase-lut); }
+
+    /* ─── PREGNANCY ─── */
+    .pregnancy { padding: 9rem 0; background: var(--blush-light); }
+    .pregnancy-header { text-align: center; margin-bottom: 3.5rem; }
+    .pregnancy-header .section-title { color: var(--text-dark); }
+    .pregnancy-header .section-sub { margin: 0 auto; }
+
+    .preg-tabs-nav {
+      display: flex; justify-content: center; gap: 0.5rem;
+      flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .preg-tab-btn {
+      padding: 0.6rem 1.4rem; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 500; font-family: 'Inter', sans-serif;
+      border: 1.5px solid var(--cream-dark); background: var(--white);
+      color: var(--text-mid); cursor: pointer; transition: all 0.3s;
+    }
+    .preg-tab-btn:hover { border-color: var(--mauve); color: var(--mauve); }
+    .preg-tab-btn.active { background: var(--mauve); color: var(--white); border-color: var(--mauve); }
+
+    .preg-panel { display: none; animation: panelIn 0.4s ease; }
+    .preg-panel.active { display: block; }
+
+    .preg-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+    .preg-img { border-radius: var(--radius-lg); height: 480px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .preg-img img { height: 100%; }
+    .preg-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mauve); margin-bottom: 0.6rem; }
+    .preg-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 400; margin-bottom: 0.8rem; }
+    .preg-intro { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; }
+    .preg-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .preg-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow-sm);
+      transition: transform 0.3s;
+    }
+    .preg-card:hover { transform: translateY(-3px); }
+    .preg-card h4 { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mauve); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
+    .preg-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .preg-card li { font-size: 0.82rem; color: var(--text-mid); padding-left: 1rem; position: relative; line-height: 1.5; }
+    .preg-card li::before { content: '·'; position: absolute; left: 0; color: var(--mauve); font-size: 1.2rem; line-height: 1.2; }
+
+    /* ─── RESOURCES ─── */
+    .resources { padding: 9rem 0; background: var(--white); }
+    .resources-header { text-align: center; margin-bottom: 4rem; }
+    .resources-header .section-sub { margin: 0 auto; }
+    .resources-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
+    .resource-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer; background: var(--white);
+    }
+    .resource-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .resource-img { height: 200px; overflow: hidden; position: relative; }
+    .resource-img img { height: 100%; transition: transform 0.65s ease; }
+    .resource-card:hover .resource-img img { transform: scale(1.06); }
+    .resource-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      background: var(--white); color: var(--mauve);
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.28rem 0.75rem; border-radius: 20px; box-shadow: var(--shadow-sm);
+    }
+    .resource-body { padding: 1.5rem; }
+    .resource-type { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+    .resource-title { font-size: 1.15rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .resource-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.1rem; }
+    .resource-cta { font-size: 0.78rem; font-weight: 600; color: var(--mauve); display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; }
+    .resource-card:hover .resource-cta { gap: 0.6rem; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { padding: 9rem 0; background: var(--cream); }
+    .testimonials-header { text-align: center; margin-bottom: 4.5rem; }
+    .testimonials-header .section-sub { margin: 0 auto; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .testi-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2.2rem; box-shadow: var(--shadow-sm);
+      position: relative; transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .testi-card::before {
+      content: '\201C'; font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: var(--blush); position: absolute;
+      top: 0.5rem; left: 1.5rem; line-height: 1;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .testi-text { font-size: 0.92rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.75rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .testi-name { font-weight: 600; font-size: 0.875rem; }
+    .testi-meta { font-size: 0.74rem; color: var(--text-light); margin-top: 0.1rem; }
+
+    /* ─── CTA / EMAIL ─── */
+    .cta-section {
+      padding: 9rem 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #3a2428 0%, #5a3040 50%, #3a2830 100%);
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1920&q=60') center/cover no-repeat;
+      opacity: 0.12;
+    }
+    .cta-inner { position: relative; text-align: center; max-width: 620px; margin: 0 auto; }
+    .cta-inner .tag { color: var(--blush); }
+    .cta-inner .section-title { color: var(--white); margin-bottom: 1rem; }
+    .cta-inner .section-sub { color: rgba(255,255,255,0.7); max-width: none; margin-bottom: 3rem; }
+    .email-form { display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto 1rem; flex-wrap: wrap; }
+    .email-form input {
+      flex: 1; padding: 0.9rem 1.2rem; border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1); color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 0.875rem;
+      outline: none; transition: border-color 0.3s, background 0.3s;
+      min-width: 220px;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,0.5); }
+    .email-form input:focus { border-color: var(--blush); background: rgba(255,255,255,0.15); }
+    .email-form button {
+      background: var(--blush-mid); color: var(--text-dark);
+      padding: 0.9rem 1.8rem; border-radius: 50px; border: none;
+      font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s; white-space: nowrap;
+    }
+    .email-form button:hover { background: var(--blush); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,217,212,0.35); }
+    .email-note { font-size: 0.72rem; color: rgba(255,255,255,0.45); }
+    .cta-perks { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .cta-perk { font-size: 0.8rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.4rem; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #221618; color: var(--cream); padding: 5rem 5% 2.5rem; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.04em; color: var(--cream); margin-bottom: 1rem; display: block; }
+    .footer-brand-logo span { color: var(--blush-mid); }
+    .footer-desc { font-size: 0.85rem; color: rgba(250,246,240,0.5); line-height: 1.8; max-width: 270px; margin-bottom: 1.75rem; }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-social-link {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; transition: all 0.3s; color: rgba(250,246,240,0.6);
+    }
+    .footer-social-link:hover { background: var(--mauve); color: var(--white); transform: translateY(-2px); }
+    .footer-col h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,246,240,0.35); margin-bottom: 1.3rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-links a { font-size: 0.85rem; color: rgba(250,246,240,0.6); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--blush); }
+    .footer-contact-items { display: flex; flex-direction: column; gap: 0.75rem; }
+    .fci { font-size: 0.85rem; color: rgba(250,246,240,0.6); display: flex; gap: 0.6rem; }
+    .fci span:first-child { flex-shrink: 0; }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.75rem; color: rgba(250,246,240,0.28);
+    }
+    .footer-bottom-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-bottom-links a { color: rgba(250,246,240,0.28); transition: color 0.3s; }
+    .footer-bottom-links a:hover { color: rgba(250,246,240,0.6); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1060px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-float { display: none; }
+      .about-img-main { height: 380px; }
+      .about-pillars { grid-template-columns: 1fr 1fr; }
+      .nutrition-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .nutrition-img { height: 360px; }
+      .movement-grid { grid-template-columns: 1fr 1fr; }
+      .preg-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .preg-img { height: 340px; }
+      .resources-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .panel-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(253,245,243,0.99);
+        justify-content: center; align-items: center;
+        gap: 2.5rem; z-index: 999;
+      }
+      .nav-links.open a { font-size: 1.4rem; color: var(--text-dark); }
+      .phase-tabs { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .movement-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .resources-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .preg-cards { grid-template-columns: 1fr; }
+      .panel-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-form input, .email-form button { width: 100%; }
+    }
+    @media (max-width: 520px) {
+      .phase-tabs { grid-template-columns: 1fr 1fr; }
+      .preg-tabs-nav { gap: 0.35rem; }
+      .trust-inner { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Christina<span>Wellness</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cycle">Cycle Health</a></li>
+    <li><a href="#nutrition">Nutrition</a></li>
+    <li><a href="#movement">Movement</a></li>
+    <li><a href="#pregnancy">Pregnancy</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact" class="nav-book">Join Us</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Women's Holistic Wellness</div>
+    <h1>Thrive in every<br><em>phase of you</em></h1>
+    <p class="hero-sub">Your body has a rhythm. Learn to move with it — not against it. Cycle-aligned wellness, hormone support, and pregnancy guidance, all in one place.</p>
+    <div class="hero-actions">
+      <a href="#cycle" class="btn btn-rose">Explore Your Wellness Journey</a>
+      <a href="#pregnancy" class="btn btn-outline-light">Pregnancy Guidance</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Discover</div>
+</section>
+
+<!-- ─── TRUST BAR ─── -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item reveal"><span class="trust-icon">🌿</span> Cycle-Aligned Wellness</div>
+    <div class="trust-item reveal rd1"><span class="trust-icon">🤰</span> Pregnancy &amp; Postpartum Support</div>
+    <div class="trust-item reveal rd2"><span class="trust-icon">🧬</span> Hormone-First Approach</div>
+    <div class="trust-item reveal rd3"><span class="trust-icon">💫</span> Evidence-Informed Guidance</div>
+    <div class="trust-item reveal rd4"><span class="trust-icon">🌸</span> Community of 12,000+ Women</div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=85" alt="Woman in peaceful wellness routine" loading="lazy" />
+        </div>
+        <div class="about-img-float">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&q=80" alt="Nourishing meal" loading="lazy" />
+        </div>
+      </div>
+      <div class="about-text reveal rd2">
+        <span class="tag">Our Mission</span>
+        <h2 class="section-title">You were never meant to feel this way every month</h2>
+        <p class="section-sub">ChristinaWellness exists to give women the knowledge and tools to truly understand their bodies — their cycles, their hormones, their needs. Because when you work <em>with</em> your biology, everything changes.</p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <span class="pillar-icon">🔬</span>
+            <div class="pillar-text">
+              <h4>Hormone Education</h4>
+              <p>Understand the four phases and how each affects your mind and body.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🥗</span>
+            <div class="pillar-text">
+              <h4>Cycle Nutrition</h4>
+              <p>Eat in alignment with your hormones for energy, mood, and vitality.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🧘</span>
+            <div class="pillar-text">
+              <h4>Intuitive Movement</h4>
+              <p>Train smarter by adapting your workouts to your cycle's natural rhythms.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🤰</span>
+            <div class="pillar-text">
+              <h4>Pregnancy Wellness</h4>
+              <p>From conception through postpartum — supported every step of the way.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CYCLE PHASES ─── -->
+<section class="cycle" id="cycle">
+  <div class="section-wrap">
+    <div class="cycle-header reveal">
+      <span class="tag">Cycle Awareness</span>
+      <h2 class="section-title">Your four phases, decoded</h2>
+      <p class="section-sub">Your menstrual cycle is not an inconvenience — it's a superpower. Each phase brings unique strengths, needs, and opportunities. Select a phase to explore what's happening in your body and how to thrive.</p>
+    </div>
+
+    <div class="phase-tabs" id="phaseTabs">
+      <div class="phase-tab reveal" data-phase="menstrual" style="--pbg:var(--phase-men-bg);--pc:var(--phase-men);">
+        <div class="phase-num">Phase 01</div>
+        <div class="phase-emoji">🌑</div>
+        <div class="phase-name">Menstrual</div>
+        <div class="phase-days">Days 1–5</div>
+      </div>
+      <div class="phase-tab reveal rd1" data-phase="follicular" style="--pbg:var(--phase-fol-bg);--pc:var(--phase-fol);">
+        <div class="phase-num">Phase 02</div>
+        <div class="phase-emoji">🌱</div>
+        <div class="phase-name">Follicular</div>
+        <div class="phase-days">Days 6–13</div>
+      </div>
+      <div class="phase-tab reveal rd2" data-phase="ovulatory" style="--pbg:var(--phase-ov-bg);--pc:var(--phase-ov);">
+        <div class="phase-num">Phase 03</div>
+        <div class="phase-emoji">🌕</div>
+        <div class="phase-name">Ovulatory</div>
+        <div class="phase-days">Days 14–16</div>
+      </div>
+      <div class="phase-tab reveal rd3" data-phase="luteal" style="--pbg:var(--phase-lut-bg);--pc:var(--phase-lut);">
+        <div class="phase-num">Phase 04</div>
+        <div class="phase-emoji">🍂</div>
+        <div class="phase-name">Luteal</div>
+        <div class="phase-days">Days 17–28</div>
+      </div>
+    </div>
+
+    <!-- Menstrual Panel -->
+    <div class="phase-panel" id="panel-menstrual" style="--panel-color:var(--phase-men); --pbg:var(--phase-men-bg);">
+      <div class="panel-intro">
+        <div class="panel-badge">🌑</div>
+        <div>
+          <div class="panel-title">Menstrual Phase</div>
+          <p class="panel-desc">Estrogen and progesterone are at their lowest. Your uterine lining sheds and your body enters its most inward, restorative state. This is your winter — a time for deep rest and reflection, not pushing through.</p>
+        </div>
+      </div>
+      <div class="panel-grid" style="--panel-color:var(--phase-men);">
+        <div class="panel-card">
+          <h4>⚡ Energy &amp; Mood</h4>
+          <ul>
+            <li>Energy is naturally lower — honour it</li>
+            <li>Heightened intuition and introspection</li>
+            <li>Possible cramping, fatigue, or lower back tension</li>
+            <li>Emotional sensitivity — be gentle with yourself</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🥗 Nutrition Focus</h4>
+          <ul>
+            <li>Iron-rich foods: lentils, red meat, leafy greens</li>
+            <li>Anti-inflammatory: ginger, turmeric, omega-3s</li>
+            <li>Warming meals: soups, broths, cooked vegetables</li>
+            <li>Dark chocolate (70%+) for magnesium</li>
+            <li>Reduce salt and alcohol to ease bloating</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🧘 Movement</h4>
+          <ul>
+            <li>Yin yoga and gentle stretching</li>
+            <li>Slow walks in nature</li>
+            <li>Rest is a legitimate training strategy</li>
+            <li>Heat therapy for cramps (hot water bottle, bath)</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌙 Self-Care</h4>
+          <ul>
+            <li>Prioritise extra sleep — your body is working hard</li>
+            <li>Journaling and reflection</li>
+            <li>Reduce social obligations where possible</li>
+            <li>Warm baths with magnesium salts</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>💡 Lifestyle Tips</h4>
+          <ul>
+            <li>Cancel what doesn't serve you — it's valid</li>
+            <li>Limit screens in the evening</li>
+            <li>Review the past month; set intentions</li>
+            <li>Slow, nourishing morning routines</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌸 Hormone Profile</h4>
+          <ul>
+            <li>Estrogen: lowest of the cycle</li>
+            <li>Progesterone: at baseline</li>
+            <li>FSH begins to rise toward end of phase</li>
+            <li>Cortisol sensitivity is higher — manage stress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Follicular Panel -->
+    <div class="phase-panel" id="panel-follicular" style="--panel-color:var(--phase-fol); --pbg:var(--phase-fol-bg);">
+      <div class="panel-intro">
+        <div class="panel-badge">🌱</div>
+        <div>
+          <div class="panel-title">Follicular Phase</div>
+          <p class="panel-desc">Estrogen begins its beautiful rise as follicles develop in preparation for ovulation. Energy, creativity, and optimism return. This is your spring — a time of renewal, fresh starts, and building momentum.</p>
+        </div>
+      </div>
+      <div class="panel-grid" style="--panel-color:var(--phase-fol);">
+        <div class="panel-card">
+          <h4>⚡ Energy &amp; Mood</h4>
+          <ul>
+            <li>Rising energy and enthusiasm</li>
+            <li>Creativity peaks — great for brainstorming</li>
+            <li>Social, optimistic, and mentally sharp</li>
+            <li>Motivation to start new projects returns</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🥗 Nutrition Focus</h4>
+          <ul>
+            <li>Light, fresh, and vibrant foods</li>
+            <li>Fermented foods to support estrogen metabolism</li>
+            <li>Sprouts, leafy greens, and cruciferous vegetables</li>
+            <li>Lean proteins to support muscle building</li>
+            <li>Flaxseeds for phytoestrogen balance</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🏋️ Movement</h4>
+          <ul>
+            <li>Begin increasing workout intensity</li>
+            <li>Strength training responds well now</li>
+            <li>Try a new class or activity</li>
+            <li>Cardio and HIIT feel accessible again</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌿 Self-Care</h4>
+          <ul>
+            <li>Social connection and collaboration</li>
+            <li>Creative projects and vision boarding</li>
+            <li>Plan your month ahead with this energy</li>
+            <li>Skincare focus — estrogen supports skin radiance</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>💡 Lifestyle Tips</h4>
+          <ul>
+            <li>Best phase to start new habits</li>
+            <li>Tackle challenging tasks and decisions</li>
+            <li>Book appointments, meetings, and events</li>
+            <li>Explore and experiment — you're resilient now</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌸 Hormone Profile</h4>
+          <ul>
+            <li>Estrogen: steadily rising</li>
+            <li>FSH: stimulating follicle development</li>
+            <li>Progesterone: still low</li>
+            <li>Testosterone: beginning gentle rise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ovulatory Panel -->
+    <div class="phase-panel" id="panel-ovulatory" style="--panel-color:var(--phase-ov); --pbg:var(--phase-ov-bg);">
+      <div class="panel-intro">
+        <div class="panel-badge">🌕</div>
+        <div>
+          <div class="panel-title">Ovulatory Phase</div>
+          <p class="panel-desc">Your LH surge triggers ovulation and estrogen peaks alongside a brief testosterone spike. This is your summer — peak confidence, vitality, communication, and magnetism. Your body is designed to shine right now.</p>
+        </div>
+      </div>
+      <div class="panel-grid" style="--panel-color:var(--phase-ov);">
+        <div class="panel-card">
+          <h4>⚡ Energy &amp; Mood</h4>
+          <ul>
+            <li>Peak physical and mental energy</li>
+            <li>Confidence, charisma, and warmth</li>
+            <li>Communication and persuasion at their best</li>
+            <li>High motivation and drive</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🥗 Nutrition Focus</h4>
+          <ul>
+            <li>Raw vegetables and high-fibre foods</li>
+            <li>Support estrogen clearance with cruciferous veg</li>
+            <li>Antioxidant-rich: berries, colourful produce</li>
+            <li>Zinc (pumpkin seeds, chickpeas) for ovulation support</li>
+            <li>Light, cooling meals if energy runs high</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🏋️ Movement</h4>
+          <ul>
+            <li>Peak performance window — go for PRs</li>
+            <li>HIIT, heavy lifting, competitive sport</li>
+            <li>High-intensity cardio feels effortless</li>
+            <li>Group classes and team workouts thrive</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌿 Self-Care</h4>
+          <ul>
+            <li>Lean into your social energy</li>
+            <li>Important conversations and presentations</li>
+            <li>Dates, networking, and public events</li>
+            <li>Capture your ideas — creativity is high</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>💡 Lifestyle Tips</h4>
+          <ul>
+            <li>Schedule high-stakes meetings or pitches</li>
+            <li>Lead, speak, and advocate for yourself</li>
+            <li>Your empathy is at its peak — connect deeply</li>
+            <li>Be aware: ovulation window lasts only 12–24 hours</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌸 Hormone Profile</h4>
+          <ul>
+            <li>Estrogen: at its peak</li>
+            <li>LH: surges to trigger ovulation</li>
+            <li>Testosterone: brief but meaningful spike</li>
+            <li>Progesterone: begins rising post-ovulation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Luteal Panel -->
+    <div class="phase-panel" id="panel-luteal" style="--panel-color:var(--phase-lut); --pbg:var(--phase-lut-bg);">
+      <div class="panel-intro">
+        <div class="panel-badge">🍂</div>
+        <div>
+          <div class="panel-title">Luteal Phase</div>
+          <p class="panel-desc">Progesterone rises to prepare the uterus for possible implantation, then falls if pregnancy doesn't occur. This is your autumn — a time for completing, organising, nesting, and gently winding down. PMS, if it occurs, happens in the late luteal phase.</p>
+        </div>
+      </div>
+      <div class="panel-grid" style="--panel-color:var(--phase-lut);">
+        <div class="panel-card">
+          <h4>⚡ Energy &amp; Mood</h4>
+          <ul>
+            <li>Energy gradually slows — honour the shift</li>
+            <li>Detail-oriented and nesting instinct</li>
+            <li>Possible PMS in final days: irritability, bloating</li>
+            <li>Emotional processing and sensitivity increases</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🥗 Nutrition Focus</h4>
+          <ul>
+            <li>Complex carbs: sweet potato, oats, brown rice</li>
+            <li>Magnesium (dark chocolate, leafy greens, nuts)</li>
+            <li>B vitamins to support mood regulation</li>
+            <li>Calcium-rich foods for PMS symptom reduction</li>
+            <li>Reduce caffeine and refined sugar late in phase</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🧘 Movement</h4>
+          <ul>
+            <li>Moderate, enjoyable movement</li>
+            <li>Pilates, swimming, barre, and yoga</li>
+            <li>Long walks over intense cardio</li>
+            <li>Begin transitioning to rest as your period nears</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌿 Self-Care</h4>
+          <ul>
+            <li>Nesting rituals: tidy, organise, prepare</li>
+            <li>Journaling and emotional check-ins</li>
+            <li>Reduce commitments in the final days</li>
+            <li>Skin may need extra hydration — support the barrier</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>💡 Lifestyle Tips</h4>
+          <ul>
+            <li>Finish and wrap up projects — not start them</li>
+            <li>Limit alcohol: progesterone amplifies its effects</li>
+            <li>Herbal teas: chamomile, raspberry leaf, lemon balm</li>
+            <li>Set gentle boundaries and protect your energy</li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <h4>🌸 Hormone Profile</h4>
+          <ul>
+            <li>Progesterone: peaks mid-luteal, then drops</li>
+            <li>Estrogen: secondary smaller peak, then declines</li>
+            <li>Both drop sharply if no implantation occurs</li>
+            <li>This hormonal drop triggers menstruation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NUTRITION ─── -->
+<section class="nutrition" id="nutrition">
+  <div class="section-wrap">
+    <div class="nutrition-layout">
+      <div class="nutrition-img reveal">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=85" alt="Nourishing cycle-aligned meal" loading="lazy" />
+      </div>
+      <div class="nutrition-content reveal rd2">
+        <span class="tag">Cycle Nutrition</span>
+        <h2 class="section-title">Food is information. Your hormones are listening.</h2>
+        <p class="section-sub">What you eat directly influences how your hormones function, how you feel, and how your cycle unfolds. Cycle-synced nutrition isn't a trend — it's one of the most powerful things you can do for your health.</p>
+        <div class="nutrition-cards">
+          <div class="nutrition-card">
+            <span class="nc-icon">🌱</span>
+            <div class="nc-text">
+              <h4>Hormone-Supportive Foods</h4>
+              <p>Prioritise fibre, healthy fats, and quality protein to give your body the building blocks for balanced hormones every phase.</p>
+            </div>
+          </div>
+          <div class="nutrition-card">
+            <span class="nc-icon">💊</span>
+            <div class="nc-text">
+              <h4>Targeted Supplements</h4>
+              <p>Magnesium glycinate, omega-3s, vitamin D3+K2, and a quality B-complex are evidence-informed foundations for cycle wellness.</p>
+            </div>
+          </div>
+          <div class="nutrition-card">
+            <span class="nc-icon">💧</span>
+            <div class="nc-text">
+              <h4>Hydration Strategy</h4>
+              <p>Your hydration needs shift through your cycle. Electrolytes during the luteal phase and warm herbal teas during menstruation support your body beautifully.</p>
+            </div>
+          </div>
+          <div class="nutrition-card">
+            <span class="nc-icon">🚫</span>
+            <div class="nc-text">
+              <h4>What to Limit</h4>
+              <p>Excess caffeine, alcohol, and ultra-processed foods all disrupt hormonal signalling. Small consistent swaps create lasting change.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MOVEMENT ─── -->
+<section class="movement" id="movement">
+  <div class="section-wrap">
+    <div class="movement-header reveal">
+      <span class="tag">Movement &amp; Wellness</span>
+      <h2 class="section-title">Train with your cycle, not against it</h2>
+      <p class="section-sub">Your capacity for different types of movement genuinely shifts across your cycle. Adapting your training isn't a weakness — it's the smartest approach to long-term strength, resilience, and results.</p>
+    </div>
+    <div class="movement-grid">
+      <div class="movement-card reveal">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Yoga and gentle movement" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Mindful Movement</div>
+          <div class="move-title">Yoga &amp; Mobility</div>
+          <p class="move-desc">Yin yoga, restorative flows, and deep stretching support recovery and reduce cortisol. Ideal for honouring rest without full inactivity.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-men">Menstrual</span>
+            <span class="move-phase-tag mpt-lut">Late Luteal</span>
+          </div>
+        </div>
+      </div>
+      <div class="movement-card reveal rd1">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="Strength training" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Strength</div>
+          <div class="move-title">Resistance Training</div>
+          <p class="move-desc">Your muscles respond best to load in the follicular and ovulatory phases. This is when to push harder, lift heavier, and chase progress.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-fol">Follicular</span>
+            <span class="move-phase-tag mpt-ov">Ovulatory</span>
+          </div>
+        </div>
+      </div>
+      <div class="movement-card reveal rd2">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" alt="Cardio and running" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Cardio</div>
+          <div class="move-title">High-Intensity &amp; Cardio</div>
+          <p class="move-desc">Estrogen enhances endurance and pain tolerance. HIIT and challenging cardio sessions deliver their best return around ovulation.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-ov">Ovulatory</span>
+            <span class="move-phase-tag mpt-fol">Follicular</span>
+          </div>
+        </div>
+      </div>
+      <div class="movement-card reveal">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1506126279646-a697353d3166?auto=format&fit=crop&w=600&q=80" alt="Pilates and barre" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Low Impact</div>
+          <div class="move-title">Pilates &amp; Barre</div>
+          <p class="move-desc">Core-focused and controlled movement that respects your body's shift toward recovery. Beautiful for the luteal phase and beyond.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-lut">Luteal</span>
+            <span class="move-phase-tag mpt-men">Menstrual</span>
+          </div>
+        </div>
+      </div>
+      <div class="movement-card reveal rd1">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1527933053326-89d1746b76b9?auto=format&fit=crop&w=600&q=80" alt="Walking in nature" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Recovery</div>
+          <div class="move-title">Walking &amp; Nature</div>
+          <p class="move-desc">Often underestimated but profoundly powerful. A long walk lowers cortisol, supports sleep, and is always appropriate — any phase, any day.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-men">All Phases</span>
+          </div>
+        </div>
+      </div>
+      <div class="movement-card reveal rd2">
+        <div class="movement-img">
+          <img src="https://images.unsplash.com/photo-1520206319-7639653f2394?auto=format&fit=crop&w=600&q=80" alt="Sleep and rest" loading="lazy" />
+        </div>
+        <div class="movement-info">
+          <div class="move-tag">Rest &amp; Recovery</div>
+          <div class="move-title">Sleep &amp; Stress Support</div>
+          <p class="move-desc">Rest is not the absence of training — it's training. Progesterone and cortisol directly affect sleep quality. Protecting it is non-negotiable.</p>
+          <div class="move-phases">
+            <span class="move-phase-tag mpt-lut">Luteal</span>
+            <span class="move-phase-tag mpt-men">Menstrual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PREGNANCY ─── -->
+<section class="pregnancy" id="pregnancy">
+  <div class="section-wrap">
+    <div class="pregnancy-header reveal">
+      <span class="tag">Pregnancy &amp; Postpartum</span>
+      <h2 class="section-title">Growing a life is the ultimate act of wellness</h2>
+      <p class="section-sub">Whether you're preparing to conceive, navigating each trimester, or recovering postpartum — this space was built for you. Nourishing, evidence-informed, and deeply supportive.</p>
+    </div>
+
+    <div class="preg-tabs-nav reveal rd1" id="pregTabs">
+      <button class="preg-tab-btn active" data-preg="prep">✨ Preparing</button>
+      <button class="preg-tab-btn" data-preg="t1">🌿 First Trimester</button>
+      <button class="preg-tab-btn" data-preg="t2">🌸 Second Trimester</button>
+      <button class="preg-tab-btn" data-preg="t3">🌙 Third Trimester</button>
+      <button class="preg-tab-btn" data-preg="pp">🤱 Postpartum</button>
+    </div>
+
+    <!-- Preparing -->
+    <div class="preg-panel active" id="preg-prep">
+      <div class="preg-layout">
+        <div class="preg-img">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=85" alt="Woman preparing for pregnancy" loading="lazy" />
+        </div>
+        <div class="preg-content">
+          <div class="preg-eyebrow">Before Conception</div>
+          <h3 class="preg-title">Preparing your body for pregnancy</h3>
+          <p class="preg-intro">The 3–6 months before conception are arguably the most important investment you can make in your future pregnancy. Optimising your hormones, nutrient stores, and cycle health now sets the foundation for everything that follows.</p>
+          <div class="preg-cards">
+            <div class="preg-card">
+              <h4>🥗 Nutrition Foundations</h4>
+              <ul>
+                <li>Begin 400mcg+ folate (or methylfolate) immediately</li>
+                <li>Iron, B12, and vitamin D levels checked</li>
+                <li>Omega-3s for egg quality and inflammation</li>
+                <li>Reduce ultra-processed foods and alcohol</li>
+                <li>CoQ10 to support egg and sperm quality</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🔬 Hormone Optimisation</h4>
+              <ul>
+                <li>Track your cycle for 3+ months to understand your baseline</li>
+                <li>Identify ovulation with LH strips or basal body temp</li>
+                <li>Support thyroid and adrenal health</li>
+                <li>Reduce endocrine disruptors in home &amp; beauty products</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🧘 Mindset &amp; Lifestyle</h4>
+              <ul>
+                <li>Begin stress management practices now</li>
+                <li>Reduce high-intensity training to moderate</li>
+                <li>Prioritise 7–9 hours of quality sleep</li>
+                <li>Build your support network early</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🏥 Medical Prep</h4>
+              <ul>
+                <li>Pre-conception GP or midwife appointment</li>
+                <li>Full blood panel: iron, B12, D, thyroid, folate</li>
+                <li>Dental check (oral health affects pregnancy)</li>
+                <li>Review any medications with your doctor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- First Trimester -->
+    <div class="preg-panel" id="preg-t1">
+      <div class="preg-layout">
+        <div class="preg-img">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=85" alt="First trimester pregnancy" loading="lazy" />
+        </div>
+        <div class="preg-content">
+          <div class="preg-eyebrow">Weeks 1–12</div>
+          <h3 class="preg-title">First Trimester — the quiet miracle</h3>
+          <p class="preg-intro">Your body is building an entirely new life from scratch, and most of it is invisible. Fatigue and nausea are not weakness — they're signs of profound hormonal work happening beneath the surface. Rest is your highest priority right now.</p>
+          <div class="preg-cards">
+            <div class="preg-card">
+              <h4>🥗 Nutrition</h4>
+              <ul>
+                <li>Small, frequent meals to manage nausea</li>
+                <li>Ginger tea, crackers, cold foods easier to tolerate</li>
+                <li>Continue folate; add choline (eggs, liver)</li>
+                <li>Iron-rich foods — blood volume is expanding</li>
+                <li>Don't stress perfection: any food is better than none</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🧘 Safe Movement</h4>
+              <ul>
+                <li>Gentle walking and light yoga</li>
+                <li>Continue previous exercise if feeling well</li>
+                <li>Avoid overheating (hot yoga, saunas)</li>
+                <li>Rest when your body asks — it always knows</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>💆 Emotional Wellness</h4>
+              <ul>
+                <li>Anxiety and mixed emotions are normal and valid</li>
+                <li>Limit who you tell until you're comfortable</li>
+                <li>Journal your experience — it's precious</li>
+                <li>Connect with your partner or support person</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>📋 What to Expect</h4>
+              <ul>
+                <li>Fatigue unlike anything you've felt before</li>
+                <li>Breast tenderness and frequent urination</li>
+                <li>Nausea peaks weeks 6–9 for most women</li>
+                <li>First scan typically at 8–12 weeks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Trimester -->
+    <div class="preg-panel" id="preg-t2">
+      <div class="preg-layout">
+        <div class="preg-img">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=85" alt="Second trimester pregnancy wellness" loading="lazy" />
+        </div>
+        <div class="preg-content">
+          <div class="preg-eyebrow">Weeks 13–26</div>
+          <h3 class="preg-title">Second Trimester — your golden window</h3>
+          <p class="preg-intro">For many women, the second trimester brings a beautiful return of energy, a visible bump, and the first movements of your baby. This is a time to nourish deeply, move joyfully, and connect with your changing body.</p>
+          <div class="preg-cards">
+            <div class="preg-card">
+              <h4>🥗 Nutrition</h4>
+              <ul>
+                <li>Increase calories by ~300–350/day now</li>
+                <li>Calcium and vitamin D for bone development</li>
+                <li>Protein at every meal for baby's growth</li>
+                <li>Omega-3 DHA for brain and eye development</li>
+                <li>Constipation common — fibre and hydration key</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🏋️ Movement</h4>
+              <ul>
+                <li>Prenatal yoga and swimming are ideal</li>
+                <li>Strength training with modifications welcome</li>
+                <li>Avoid lying flat on back after 20 weeks</li>
+                <li>Pelvic floor work begins in earnest now</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>💆 Mind &amp; Body</h4>
+              <ul>
+                <li>Baby movements typically felt 16–24 weeks</li>
+                <li>Anatomy scan at ~20 weeks — a milestone</li>
+                <li>Begin birth preferences exploration</li>
+                <li>Hypnobirthing, mindfulness, and breathwork</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🌿 Self-Care</h4>
+              <ul>
+                <li>Belly oil for skin elasticity (rosehip, jojoba)</li>
+                <li>Prenatal massage if available to you</li>
+                <li>Begin building your birth team</li>
+                <li>Set up your support structure for postpartum</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Trimester -->
+    <div class="preg-panel" id="preg-t3">
+      <div class="preg-layout">
+        <div class="preg-img">
+          <img src="https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?auto=format&fit=crop&w=800&q=85" alt="Third trimester pregnancy" loading="lazy" />
+        </div>
+        <div class="preg-content">
+          <div class="preg-eyebrow">Weeks 27–40+</div>
+          <h3 class="preg-title">Third Trimester — preparing to meet them</h3>
+          <p class="preg-intro">Your body is in its final remarkable stretch. Baby is growing rapidly, your energy may slow, and your mind turns naturally toward preparation and nesting. This is a time of deep readiness — physical and emotional.</p>
+          <div class="preg-cards">
+            <div class="preg-card">
+              <h4>🥗 Nutrition</h4>
+              <ul>
+                <li>Small frequent meals as baby crowds stomach</li>
+                <li>Dates from 36 weeks (research supports cervical ripening)</li>
+                <li>Raspberry leaf tea from 36+ weeks</li>
+                <li>Iron levels monitored as labour approaches</li>
+                <li>Stay hydrated — Braxton Hicks worsen with dehydration</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🧘 Movement</h4>
+              <ul>
+                <li>Walking, swimming, and gentle yoga remain safe</li>
+                <li>Pelvic floor and perineal preparation</li>
+                <li>Spinning Babies techniques for optimal positioning</li>
+                <li>Rest when you need it — it's valid always</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>💆 Birth Preparation</h4>
+              <ul>
+                <li>Write your birth preferences (not a rigid plan)</li>
+                <li>Practice breathing and relaxation techniques</li>
+                <li>Perineal massage from 34–36 weeks</li>
+                <li>Pack your bag from 36 weeks</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🌿 Nesting &amp; Mindset</h4>
+              <ul>
+                <li>Set up postpartum support in advance</li>
+                <li>Batch-cook and freeze nourishing meals</li>
+                <li>Communicate your needs clearly to your support team</li>
+                <li>Fear is normal — breathe through it with information</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Postpartum -->
+    <div class="preg-panel" id="preg-pp">
+      <div class="preg-layout">
+        <div class="preg-img">
+          <img src="https://images.unsplash.com/photo-1537365587684-f490102e1225?auto=format&fit=crop&w=800&q=85" alt="Postpartum mother and baby" loading="lazy" />
+        </div>
+        <div class="preg-content">
+          <div class="preg-eyebrow">The Fourth Trimester</div>
+          <h3 class="preg-title">Postpartum — the most important recovery of your life</h3>
+          <p class="preg-intro">You just grew and birthed a human being. Postpartum recovery is not about bouncing back. It's about rebuilding — slowly, nourished, and supported. The world rushes this. We don't. Give yourself 12 months minimum.</p>
+          <div class="preg-cards">
+            <div class="preg-card">
+              <h4>🥗 Recovery Nutrition</h4>
+              <ul>
+                <li>Iron-rich foods to restore losses from birth</li>
+                <li>Protein and collagen for tissue healing</li>
+                <li>Continue prenatal vitamins — especially if breastfeeding</li>
+                <li>Extra calories if breastfeeding (+400–500/day)</li>
+                <li>Warm, nourishing, easy-to-digest foods</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🏥 Physical Recovery</h4>
+              <ul>
+                <li>No exercise beyond walking for 6–8 weeks minimum</li>
+                <li>Pelvic floor physiotherapy — essential, not optional</li>
+                <li>Diastasis recti screening before returning to exercise</li>
+                <li>Scar massage for C-section from 6 weeks</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>💆 Mental Health</h4>
+              <ul>
+                <li>Baby blues (days 3–10) are normal and hormonally driven</li>
+                <li>Postnatal depression affects 1 in 5 women — seek help</li>
+                <li>Sleep deprivation is profound — ask for help</li>
+                <li>Identity shifts are real and deserve acknowledgement</li>
+              </ul>
+            </div>
+            <div class="preg-card">
+              <h4>🤱 Breastfeeding Support</h4>
+              <ul>
+                <li>It's a learned skill — give yourself grace</li>
+                <li>Lactation consultant is worth every penny</li>
+                <li>Supply is typically established by 6 weeks</li>
+                <li>Fed is always best — formula is never failure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESOURCES ─── -->
+<section class="resources" id="resources">
+  <div class="section-wrap">
+    <div class="resources-header reveal">
+      <span class="tag">Free Resources</span>
+      <h2 class="section-title">Your wellness library</h2>
+      <p class="section-sub">Beautifully designed guides, trackers, and tools to support every stage of your journey — all free to download when you join the ChristinaWellness community.</p>
+    </div>
+    <div class="resources-grid">
+      <div class="resource-card reveal">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Cycle syncing guide" loading="lazy" />
+          <div class="resource-badge">Free Download</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Cycle Wellness</div>
+          <div class="resource-title">The Cycle Syncing Starter Guide</div>
+          <p class="resource-desc">A complete 28-day breakdown of how to align your food, movement, work, and rest with your cycle phases.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+      <div class="resource-card reveal rd1">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" alt="Pregnancy nutrition guide" loading="lazy" />
+          <div class="resource-badge">Free Download</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Pregnancy</div>
+          <div class="resource-title">Pregnancy Nutrition by Trimester</div>
+          <p class="resource-desc">What to eat, what to avoid, and which nutrients matter most at each stage of pregnancy — including postpartum recovery.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+      <div class="resource-card reveal rd2">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Hormone friendly recipes" loading="lazy" />
+          <div class="resource-badge">Recipe Guide</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Nutrition</div>
+          <div class="resource-title">30 Hormone-Friendly Recipes</div>
+          <p class="resource-desc">Delicious, easy recipes designed around each cycle phase. Breakfasts, mains, and snacks that support your hormones without sacrificing joy.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Exercise by cycle phase" loading="lazy" />
+          <div class="resource-badge">Workout Plan</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Movement</div>
+          <div class="resource-title">Exercise by Cycle Phase Plan</div>
+          <p class="resource-desc">A 4-week workout framework that adapts to your hormonal rhythm. Built for real women with real lives, not just athletes.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+      <div class="resource-card reveal rd1">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=600&q=80" alt="Postpartum preparation guide" loading="lazy" />
+          <div class="resource-badge">Free Guide</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Postpartum</div>
+          <div class="resource-title">Postpartum Preparation Checklist</div>
+          <p class="resource-desc">Everything to prepare before baby arrives — from nutrition stocks to support networks — so the fourth trimester feels held, not overwhelming.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+      <div class="resource-card reveal rd2">
+        <div class="resource-img">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Wellness journal prompts" loading="lazy" />
+          <div class="resource-badge">Journal Guide</div>
+        </div>
+        <div class="resource-body">
+          <div class="resource-type">Mindset</div>
+          <div class="resource-title">Cycle Awareness Journal Prompts</div>
+          <p class="resource-desc">52 thoughtful prompts for tracking your energy, mood, symptoms, and insights throughout your cycle — the foundation of true body literacy.</p>
+          <div class="resource-cta">Download Free <span>→</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-wrap">
+    <div class="testimonials-header">
+      <span class="tag reveal">Women's Stories</span>
+      <h2 class="section-title reveal rd1">Real women. Real transformations.</h2>
+      <p class="section-sub reveal rd2">When women understand their bodies, everything shifts. Less fighting, less shame, more ease.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I spent years thinking my cycle was the enemy. ChristinaWellness completely reframed how I see myself. I now plan my work, social life, and training around my phases — and I've never felt more in control or more like myself."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Sophie" /></div>
+          <div><div class="testi-name">Sophie L.</div><div class="testi-meta">Cycle Syncing Member · London, UK</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The pregnancy section was genuinely the most useful thing I found during my first pregnancy. Clear, calm, non-alarmist information that helped me feel empowered and prepared at every stage — including postpartum."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Mia" /></div>
+          <div><div class="testi-name">Mia K.</div><div class="testi-meta">New Mum · Melbourne, Australia</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I finally understand why I feel completely different every week. The cycle phase breakdowns are the most practical, actionable wellness content I've ever found. My energy, mood, and workouts have genuinely transformed."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Priya" /></div>
+          <div><div class="testi-name">Priya S.</div><div class="testi-meta">Wellness Community Member · New York</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA / EMAIL ─── -->
+<section class="cta-section" id="contact">
+  <div class="section-wrap">
+    <div class="cta-inner">
+      <span class="tag reveal">Join the Community</span>
+      <h2 class="section-title reveal rd1">Start understanding<br><em>your body today</em></h2>
+      <p class="section-sub reveal rd2">Join 12,000+ women receiving weekly cycle wisdom, hormone health insights, and pregnancy guidance — straight to their inbox. Free, always.</p>
+      <div class="cta-perks reveal rd2">
+        <span class="cta-perk">✓ Free cycle guide on signup</span>
+        <span class="cta-perk">✓ Weekly wellness emails</span>
+        <span class="cta-perk">✓ No spam, ever</span>
+      </div>
+      <form id="ctaForm" onsubmit="handleCta(event)" class="reveal rd3">
+        <div class="email-form">
+          <input type="email" id="ctaEmail" placeholder="Your email address" required />
+          <button type="submit" id="ctaBtn">Join Free →</button>
+        </div>
+      </form>
+      <p class="email-note reveal rd4">Your privacy matters. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand-logo">Christina<span>Wellness</span></span>
+      <p class="footer-desc">Empowering women to understand their bodies, honour their cycles, and thrive through every phase of life — with knowledge, grace, and community.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="Instagram">📷</a>
+        <a href="#" class="footer-social-link" aria-label="TikTok">🎵</a>
+        <a href="#" class="footer-social-link" aria-label="Pinterest">📌</a>
+        <a href="#" class="footer-social-link" aria-label="Newsletter">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="#cycle">Cycle Health</a></li>
+        <li><a href="#nutrition">Nutrition</a></li>
+        <li><a href="#movement">Movement</a></li>
+        <li><a href="#pregnancy">Pregnancy</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul class="footer-links">
+        <li><a href="#">Free Guides</a></li>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">About Christina</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-items">
+        <div class="fci"><span>📧</span><span>hello@christinawellness.com</span></div>
+        <div class="fci"><span>📍</span><span>London &amp; online — serving women worldwide</span></div>
+        <div class="fci"><span>🕐</span><span>Mon–Fri, responses within 24 hours</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 ChristinaWellness. All rights reserved.</span>
+    <ul class="footer-bottom-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Disclaimer</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // ── Hero BG
+  window.addEventListener('load', () => document.getElementById('heroBg').classList.add('loaded'));
+
+  // ── Scroll reveal
+  const revEls = document.querySelectorAll('.reveal');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }).observe
+    ? (() => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+      revEls.forEach(el => obs.observe(el));
+    })() : revEls.forEach(el => el.classList.add('visible'));
+
+  // ── Cycle phase tabs
+  const phaseTabs = document.querySelectorAll('.phase-tab');
+  const phasePanels = document.querySelectorAll('.phase-panel');
+  let activePhase = null;
+
+  phaseTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const phase = tab.dataset.phase;
+      const panel = document.getElementById('panel-' + phase);
+      const isActive = tab.classList.contains('active');
+
+      phaseTabs.forEach(t => t.classList.remove('active'));
+      phasePanels.forEach(p => p.classList.remove('active'));
+
+      if (!isActive) {
+        tab.classList.add('active');
+        panel.classList.add('active');
+        activePhase = phase;
+        setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      } else {
+        activePhase = null;
+      }
+    });
+  });
+
+  // ── Pregnancy tabs
+  const pregBtns = document.querySelectorAll('.preg-tab-btn');
+  const pregPanels = document.querySelectorAll('.preg-panel');
+
+  pregBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.preg;
+      pregBtns.forEach(b => b.classList.remove('active'));
+      pregPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('preg-' + target).classList.add('active');
+    });
+  });
+
+  // ── CTA form
+  function handleCta(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ctaBtn');
+    btn.textContent = '✓ Welcome to the community!';
+    btn.style.background = '#a8c5ad';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Join Free →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
